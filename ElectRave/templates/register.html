@@ -8,7 +8,7 @@
     <meta content="width=device-width, initial-scale=1.0" name="viewport">
     <meta content="" name="keywords">
     <meta content="" name="description">
-    <link rel="stylesheet" type="text/css" href="{% static 'style.css' %}">
+    <link rel="stylesheet" type="text/css" href="{% static 'home/main_login.css' %}">
 	<link href="https://fonts.googleapis.com/css?family=Poppins:600&display=swap" rel="stylesheet">
 	<script src="https://kit.fontawesome.com/a81368914c.js"></script>
 	<meta name="viewport" content="width=device-width, initial-scale=1">
@@ -33,20 +33,20 @@
 
     <!-- Template Stylesheet -->
 	
-    <link href="{% static 'style.css' %}" rel="stylesheet">
+    <link href="{% static 'main_login.css' %}" rel="stylesheet">
 </head>
 
 <body>
-	<img class="wave"  src="{% static 'login-wall.jpg' %}">
+	<img class="wave"  src="{% static 'home/login-wall.jpg' %}">
 	<div class="container">
-		<div class="wave" src="{% static 'login-wall.jpg' %}">
+		<div class="wave" src="{% static 'home/login-wall.jpg' %}">
 		</div>
 		<div class="login-content">
 		
         <div class="div">
         <br><br>
         <form method="post">
-            <img   src="{% static 'user-login.png' %}"><br>
+            <img   src="{% static 'home/user-login.png' %}"><br>
             <h3 >Registro</h3>
             {% csrf_token %}
             {{ form.username.label }}</br>
