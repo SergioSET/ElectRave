@@ -26,3 +26,12 @@ def register(request):
             "title": "ElectRave register page",
         },
     )
+
+def index(request):
+    return render(
+        request,
+        "index.html",
+        {
+            "title": "ElectRave user page",
+        },
+    )

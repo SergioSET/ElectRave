@@ -12,7 +12,7 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
 
     <!-- custom css file link  -->
-    <link rel="stylesheet" href="{% static 'main_home.css' %}">
+    <link rel="stylesheet" href="{% static 'home/main_home.css' %}">
 
 </head>
 <body>
@@ -36,8 +36,8 @@
     <div id="header">
         <ul class="nav">
             <li><a href="{% url 'login' %}">Iniciar Sesión</a></li>
-            <li><a href="{% url 'register' %}" >Registrarse</a>
-            </li>
+            <li><a href="{% url 'register' %}" >Registrarse</a></li>
+            <li><a href="{% url 'index' %}" >Saltar logueo</a></li>
         </ul>
     </div>
 </nav>
