@@ -50,7 +50,7 @@ def loginn(request):
             )
             if user is not None:
                 login(request, user)
-                return redirect('home')
+                return redirect('index-usuario')
         message = 'Usuario o contraseña no validos'
     return render(request, 'login.html', context={'form': form, 'message': message})
 
@@ -72,4 +72,4 @@ def register(request):
     return render(request, 'register.html', context={'form': form})
 
 def index(request):
-    return render(request, 'templates/index.html')
+    return render(request, 'index.html')
