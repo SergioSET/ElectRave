@@ -180,14 +180,26 @@
                 <div class="row vh-100 bg-secondary rounded align-items-center justify-content-center mx-0">
                     <div class="col-md-6 text-center">
                         
+                        {% block contenido %}
+
+                        <table>
+                        
+                            <tr>
+                                <th>
+                                    Nombre
+                                </th>
+                            </tr>
+                            
+                        </table>
+                        {% for u in usuarios %}
+                        <tr>
+                            <td>{{request u.user}}</td>
+                        </tr>
 
 
-
-
-
-
-
-
+                        {% endfor %}
+                        
+                        {% endblock %}
 
                     </div>
                 </div>
