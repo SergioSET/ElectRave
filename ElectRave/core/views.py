@@ -75,3 +75,5 @@ def index(request):
     return render(request, 'index.html')
 def gestion_usuario(request):
     return render(request, 'gestion_usuarios.html')
+def listar_usuarios(request):
+    return render(request,'listado_usuarios.html')

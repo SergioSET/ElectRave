@@ -23,6 +23,7 @@ urlpatterns = [
     path("login/", core_views.loginn, name='login'),
     path("register/", core_views.register, name='register'),
     path("index_gestion_usuario/",core_views.gestion_usuario,name='gestion_users'),
+    path("listar-usuarios/",core_views.listar_usuarios,name='listar_usuarios'),
     path("index/", core_views.index, name='index-usuario'),
     path("admin/", admin.site.urls),
     path("__reload__/", include("django_browser_reload.urls"),name='reload'),
