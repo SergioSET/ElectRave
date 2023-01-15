@@ -20,7 +20,7 @@ from ElectRave.core import views as core_views
 
 urlpatterns = [
     path("", core_views.home, name='home'),
-    path("login/", core_views.login, name='login'),
+    path("login/", core_views.loginn, name='login'),
     path("register/", core_views.register, name='register'),
     path("index/", core_views.index, name='index'),
     path("admin/", admin.site.urls),
