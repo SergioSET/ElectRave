@@ -1,0 +1,29 @@
+{% extends 'index.html' %}
+{% load crispy_forms_tags %}
+{% block content %}
+
+  <h1>Modificar usuario</h1>
+
+
+  <form action="{% url 'actualizar-usuarios' usuario.id %}" method="POST">
+    {% csrf_token %} 
+    
+    {% if mensaje %}   
+    <div class="alert alert-success" role="alert" >Se eliminó exitosamente</div>
+    {% endif %}
+    {{form | crispy}}
+    
+    <button type="submit" class="btn btn-primary">Guardar</button>
+
+    {% for p in use %}
+    {% if p.username == request.user.username %}
+    {% if p.role == 'CREATOR' %}
+    <a class="btn btn-warning" href="{% url 'listar-usuarios' %}">cancelar</a>
+    {% endif %}
+    {% endif %}
+    {% endfor %}
+
+    
+</form>
+
+{% endblock content%}
