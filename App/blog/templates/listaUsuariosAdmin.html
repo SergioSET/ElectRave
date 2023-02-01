@@ -1,0 +1,34 @@
+{% extends 'gestion_usuarios.html' %}
+{% block content %}
+<div class="row vh-100 bg-secondary rounded align-items-center justify-content-center mx-0">
+  <div class="col-md-6 text-center">
+    <h2 style="text-align:center;">Lista de Usuarios</h2><br><br>
+    <table  class="table">
+      <thead>
+        <tr>
+          <th scope="col">Nombre</th>
+          <th scope="col">Username</th>
+          <th scope="col">Correo</th>
+          <th scope="col">Editar</th>
+          <th scope="col">Facturar</th>
+        </tr>
+      </thead>
+      <tbody>
+        {% for p in use %}
+        <tr>
+          <td>{{p.nombre}}</td>
+          <td>{{p.username}}</td>
+          <td>{{p.email}}</td>
+          <td><a href= "{% url 'modificar-usuarios' p.id %}" class="nav-item nav-link active"><i></i>Editar</a></td>
+          <td><a href= "{% url 'crear-factura' %}" class="nav-item nav-link active"><i></i>añadir factura</a></td>
+        {% endfor %}
+        </tr>
+      </tbody>
+    </table>
+    <div>
+      <a href= "{% url 'agregar-usuario' %}" class="btn btn-success"><i></i>Agregar Usuario</a>
+    </div>
+  </div>
+</div>
+
+{% endblock content %}

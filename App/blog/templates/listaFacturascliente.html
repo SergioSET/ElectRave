@@ -1,0 +1,43 @@
+{% extends 'facturas.html' %}
+{% load static %}
+{% block content %}
+<div class="row vh-100 bg-secondary rounded align-items-center justify-content-center mx-0">
+  <div  >
+    <h2 style="text-align:center;" >Lista de tus Facturas</h2><br>
+    <table class="table">
+      <thead>
+        <tr>
+          <th scope="col">Cliente</th>
+          <th  scope="col">Total a Pagar</th>
+          <th scope="col">Consumo</th>
+           <th scope="col">Fecha de vencimiento</th>
+           <th scope="col">Fecha de facturacion</th>
+           <th scope="col">Estado pago</th>
+        </tr>
+      </thead>
+      <tbody>
+        {% for p in fac %}
+        <tr>
+            {% if p.cliente == request.user.username %}
+          <td>{{p.cliente}}</td>
+          <td>{{p.total_pagar}}</td>
+          <td>{{p.consumo}}</td>
+          <td>{{p.fecha_vencimiento}}</td>
+          <td>{{p.fecha_facturacion}}</td>
+          {% if p.Pagado == 'true' %}
+          <td><img src="{% static 'Pagado.png' %}" alt="Pagado" width=65% height=65%></td>
+          {% else %}
+          <td><img src="{% static 'Nopago.png' %}" alt="Pagado" width=65% height=65%></td>
+          {% endif %}
+          <td><a href= "{% url 'gestion-pago-cliente' p.id %}" class="nav-item nav-link active"><i></i>Pagar</a></td>
+          <td><a href= "{% url 'ver-factura' p.id %}" class="nav-item nav-link active"><i></i>Factura</a></td>
+            {% endif %}
+         {% endfor %}
+          <td></td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</div>
+
+{% endblock content %}

@@ -1,0 +1,30 @@
+{% extends 'gestion_usuarios.html' %}
+{% block content %}
+<div class="row vh-100 bg-secondary rounded align-items-center justify-content-center mx-0">
+  <div class="col-md-6 text-center">
+    <h2 style="text-align:center;" >Lista de Usuarios</h2><br>
+    <table  class="table">
+      <thead>
+        <tr>
+          <th scope="col">Nombre</th>
+          <th scope="col">Username</th>
+          <th scope="col">Correo</th>
+          <th scope="col">Ver Consumo</th>
+        </tr>
+      </thead>
+      <tbody>
+        {% for p in use %}
+        <tr>
+          <td>{{p.nombre}}</td>
+          <td>{{p.username}}</td>
+          <td>{{p.email}}</td>
+          <td><a href= "{% url 'accountPage' p.id %}" class="nav-item nav-link active"><i ></i>Ver</a></td>
+        {% endfor %}
+          <td></td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</div>
+
+{% endblock content %}

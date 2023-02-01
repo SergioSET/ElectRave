@@ -1,0 +1,62 @@
+{% extends 'index.html' %}
+{% load static %}
+{% block content %}
+<script src="{% static 'lib/highcharts-8.1.2/highcharts.js' %}"></script>
+<script src="{% static 'lib/highcharts-8.1.2/modules/exporting.js' %}"></script>
+<script src="{% static 'lib/highcharts-8.1.2/modules/export-data.js' %}"></script>
+<script src="{% static 'lib/highcharts-8.1.2/modules/accessibility.js' %}"></script>
+
+<h2>Grafica de consumo</h2>
+<div class = "container-fluid">
+    <div class = "row">
+        <div class = "col-lg-12">
+            <div id="container"></div>
+        </div>
+    </div>
+</div>
+
+<script type = "application/Javascript">
+    Highcharts.chart('container', {
+    chart: {
+        type: 'column'
+    },
+    title: {
+        text: 'Consumo en meses de {{ user }}'
+    },
+    subtitle: {
+        text: 'Electrave'
+    },
+    xAxis: {
+        categories: {{ fechas|safe }},
+        crosshair: true,
+    },
+    yAxis: {
+        min: 0,
+        title: {
+            text: 'Valores de consumo'
+        }
+    },
+    tooltip: {
+        headerFormat: '<span style="font-size:10px">{point.key}</span><table>',
+        pointFormat: '<tr><td style="color:{series.color};padding:0">{series.name}: </td>' +
+            '<td style="padding:0"><b>{point.y:.1f} kW</b></td></tr>',
+        footerFormat: '</table>',
+        shared: true,
+        useHTML: true
+    },
+    plotOptions: {
+        column: {
+            pointPadding: 0.2,
+            borderWidth: 0
+        }
+    },
+    series: [{
+        name: 'Consumo',
+        showInLegend: false,
+        data: {{ datos }}
+
+    },]
+});
+</script>
+
+{% endblock content%}
